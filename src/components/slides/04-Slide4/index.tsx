@@ -1,5 +1,6 @@
 "use client";
 import { CheckCircle, AlertTriangle } from 'lucide-react';
+import Image from 'next/image';
 import { SlideContainer, PainelConteudo, PainelMidia, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
 import { TituloSlide, Subtitulo, TextoApoio, MiniTitulo, Legenda } from '@/components/ui/Typography';
 
@@ -7,7 +8,14 @@ export default function Slide4() {
   return (
     <SlideContainer layout="reverso">
       <PainelMidia>
-        <img src="/images/microkernel.png" alt="Microkernel" />
+        <Image 
+          src="/images/microkernel.png" 
+          alt="Microkernel" 
+          width={800} 
+          height={600} 
+          style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+          priority
+        />
       </PainelMidia>
       <PainelConteudo>
         <div className="presenter-badge">Thiago</div>
@@ -16,7 +24,7 @@ export default function Slide4() {
         
         <TextoApoio>
           Mantém <strong>apenas o essencial</strong> no núcleo (escalonamento, IPC, memória básica). 
-          Os demais serviços  rodam como processos em espaço de usuário, garantindo isolamento.
+          Os demais serviços rodam como processos em espaço de usuário, garantindo isolamento.
         </TextoApoio>
 
         <GridLadoALado>
