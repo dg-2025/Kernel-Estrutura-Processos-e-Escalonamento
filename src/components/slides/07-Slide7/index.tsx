@@ -1,5 +1,6 @@
 "use client";
 import { Activity, ListChecks, Repeat } from 'lucide-react';
+import Image from 'next/image';
 import { SlideContainer, PainelConteudo, PainelMidia, BlocoInformativo } from '@/components/ui/Containers';
 import { TituloSlide, TextoApoio, MiniTitulo } from '@/components/ui/Typography';
 
@@ -7,7 +8,14 @@ export default function Slide7() {
   return (
     <SlideContainer layout="padrao">
       <PainelMidia>
-        <img src="/images/estados-processo.png" alt="Estados do Processo" />
+        <Image 
+          src="/images/estados-processo.png" 
+          alt="Estados do Processo" 
+          width={800} 
+          height={600} 
+          style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+          quality={75}
+        />
       </PainelMidia>
       <PainelConteudo>
         <div className="presenter-badge">Arthur</div>
