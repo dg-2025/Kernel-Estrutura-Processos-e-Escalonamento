@@ -1,5 +1,6 @@
 "use client";
 import { TrendingUp, TrendingDown, Award } from 'lucide-react';
+import Image from 'next/image';
 import { SlideContainer, PainelConteudo, PainelMidia, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
 import { TituloSlide, Subtitulo, TextoApoio, MiniTitulo } from '@/components/ui/Typography';
 
@@ -7,7 +8,14 @@ export default function Slide11() {
   return (
     <SlideContainer layout="padrao">
       <PainelMidia>
-        <img src="/images/windows-scheduler.png" alt="Escalonador do Windows" />
+        <Image 
+          src="/images/windows-scheduler.png" 
+          alt="Escalonador do Windows" 
+          width={800} 
+          height={600} 
+          style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+          quality={75}
+        />
       </PainelMidia>
       <PainelConteudo>
         <div className="presenter-badge">Guilherme</div>
