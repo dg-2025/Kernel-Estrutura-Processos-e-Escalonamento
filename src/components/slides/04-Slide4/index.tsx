@@ -16,7 +16,7 @@ export default function Slide4() {
         
         <TextoApoio>
           Mantém <strong>apenas o essencial</strong> no núcleo (escalonamento, IPC, memória básica). 
-          Os demais serviços rodam como processos em espaço de usuário, garantindo isolamento.
+          Os demais serviços  rodam como processos em espaço de usuário, garantindo isolamento.
         </TextoApoio>
 
         <GridLadoALado>
