@@ -14,7 +14,7 @@ export default function Slide4() {
           width={800} 
           height={600} 
           style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
-          priority
+          quality={75}
         />
       </PainelMidia>
       <PainelConteudo>
