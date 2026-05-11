@@ -1,0 +1,1684 @@
+﻿
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\app\globals.css
+================================================
+
+:root {
+  /* Cores Globais */
+  --color-primary: #FF6B35;
+  --color-secondary: #FFD166;
+  --color-text-main: #F8F9FA;
+  --color-text-muted: #CED4DA;
+  --bg-glass: rgba(13, 17, 23, 0.85);
+  --border-glass: rgba(255, 107, 53, 0.25);
+
+  /* Tipografia do Sistema */
+  --font-titulo-apresentacao: clamp(2.5rem, 6vw + 2dvh, 5rem);
+  --font-titulo-slide: clamp(2rem, 4vw + 1dvh, 3.5rem);
+  --font-subtitulo: clamp(1.4rem, 2.5vw, 2.2rem);
+  --font-mini-titulo: clamp(1.1rem, 1.8vw, 1.5rem);
+  --font-texto-apoio: clamp(1rem, 1.5vw + 0.5dvh, 1.3rem);
+  --font-legenda: clamp(0.8rem, 1vw, 1rem);
+
+  /* Espaçamentos Dinâmicos */
+  --gap-elementos: clamp(1rem, 3dvh, 2rem);
+  --padding-painel: clamp(1.5rem, 4dvh, 3rem);
+  
+  /* Proteções Anti-Quebra */
+  --max-width-texto: 65ch;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: transparent;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* =========================================
+   SISTEMA DE CONTAINERS (ESTRUTURA)
+========================================= */
+
+.slide-container {
+  display: flex;
+  width: 100vw;
+  height: 100dvh;
+  gap: var(--gap-elementos);
+  padding: var(--padding-painel);
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.layout-padrao { flex-direction: row; }
+.layout-reverso { flex-direction: row-reverse; }
+.layout-centralizado { justify-content: center; max-width: 1600px; margin: 0 auto; }
+
+.painel-conteudo {
+  flex: 1;
+  min-height: 0;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+  padding: var(--padding-painel);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap-elementos);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.painel-midia {
+  flex: 1;
+  background: rgba(13, 17, 23, 0.5);
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap-elementos);
+  position: relative;
+}
+
+.painel-midia img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 1rem;
+}
+
+.grid-lado-a-lado {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gap-elementos);
+  width: 100%;
+}
+
+.bloco-informativo {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  border-radius: 1rem;
+  padding: var(--gap-elementos);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* =========================================
+   SISTEMA DE TIPOGRAFIA
+========================================= */
+
+.titulo-apresentacao {
+  color: var(--color-primary);
+  font-family: monospace;
+  font-size: var(--font-titulo-apresentacao);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  text-align: center;
+}
+
+.titulo-slide {
+  color: var(--color-primary);
+  font-family: monospace;
+  font-size: var(--font-titulo-slide);
+  font-weight: 800;
+  line-height: 1.1;
+  border-bottom: 2px solid var(--border-glass);
+  padding-bottom: 0.5rem;
+  margin: 0;
+}
+
+.subtitulo {
+  color: var(--color-secondary);
+  font-family: monospace;
+  font-size: var(--font-subtitulo);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.mini-titulo {
+  color: var(--color-secondary);
+  font-size: var(--font-mini-titulo);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.texto-apoio {
+  color: var(--color-text-main);
+  font-size: var(--font-texto-apoio);
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: var(--max-width-texto);
+  margin: 0;
+}
+
+.texto-apoio strong { color: var(--color-secondary); font-weight: 700; }
+
+.destaque {
+  font-size: var(--font-texto-apoio);
+  font-style: italic;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.legenda {
+  font-size: var(--font-legenda);
+  color: var(--color-text-muted);
+  opacity: 0.8;
+  margin: 0;
+  text-align: center;
+}
+
+/* Badge de apresentação (canto superior) */
+.presenter-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: rgba(255, 107, 53, 0.2);
+  backdrop-filter: blur(4px);
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+  border: 1px solid var(--border-glass);
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  z-index: 20;
+}
+
+/* Lista de participantes */
+.lista-participantes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  font-size: var(--font-texto-apoio);
+  color: var(--color-text-main);
+  text-align: left;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lista-participantes span {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.8rem;
+  border-radius: 2rem;
+  display: inline-block;
+  text-align: center;
+}
+
+/* =========================================
+   RESPONSIVIDADE: SCROLL APENAS NO MOBILE
+========================================= */
+@media (max-width: 768px) {
+  body, html {
+    overflow: auto;           /* Permite scroll global no mobile */
+    height: auto;
+    min-height: 100dvh;
+  }
+  .slide-container {
+    flex-direction: column !important;
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: visible;      /* Deixa o body gerenciar o scroll */
+    padding: var(--padding-painel);
+  }
+  .painel-conteudo {
+    flex: none;
+    justify-content: flex-start;
+    overflow-y: visible;
+    max-height: none;
+  }
+  .presenter-badge {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 1rem;
+    align-self: flex-end;
+  }
+}
+/* =========================================
+   BACKGROUND 3D (CENA KERNEL)
+========================================= */
+.bg-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, #0A0D14 85%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\app\layout.tsx
+================================================
+
+import './globals.css';
+
+export const metadata = {
+  title: 'Sistemas Acoplados e Multiprocessamento',
+  description: 'Apresentação interativa desenvolvida com Next.js e Three.js',
+};
+
+// Adicionada a tipagem do 'children'
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="pt-BR">
+      <body>{children}</body>
+    </html>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\app\not-found.tsx
+================================================
+
+export default function NotFound() {
+  return (
+    <div style={{ 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      height: '100vh', 
+      fontFamily: 'monospace',
+      color: '#00E5FF' 
+    }}>
+      <h1>404 | Falha na conexão com o Datacenter (Página não encontrada)</h1>
+    </div>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\app\page.tsx
+================================================
+
+"use client";
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import BackgroundWrapper from '@/components/core/BackgroundWrapper';
+
+import Slide1 from '@/components/slides/01-Slide1';
+import Slide2 from '@/components/slides/02-Slide2';
+import Slide3 from '@/components/slides/03-Slide3';
+import Slide4 from '@/components/slides/04-Slide4';
+import Slide5 from '@/components/slides/05-Slide5';
+import Slide6 from '@/components/slides/06-Slide6';
+import Slide7 from '@/components/slides/07-Slide7';
+import Slide8 from '@/components/slides/08-Slide8';
+import Slide9 from '@/components/slides/09-Slide9';
+import Slide10 from '@/components/slides/10-Slide10';
+import Slide11 from '@/components/slides/11-Slide11';
+import Slide12 from '@/components/slides/12-Slide12';
+
+const todosOsSlides: React.ComponentType[] = [
+  Slide1, 
+  Slide2, 
+  Slide3, 
+  Slide4, 
+  Slide5, 
+  Slide6, 
+  Slide7, 
+  Slide8, 
+  Slide9, 
+  Slide10, 
+  Slide11, 
+  Slide12
+];
+
+export default function Home() {
+  const [slides, setSlides] = useState<React.ComponentType[]>([]);
+  const [slideAtivo, setSlideAtivo] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      setSlides(todosOsSlides.slice(1));
+    } else {
+      setSlides(todosOsSlides);
+    }
+  }, []);
+
+  const proximoSlide = useCallback(() => {
+    setSlideAtivo((prev) => (prev < slides.length - 1 ? prev + 1 : prev));
+  }, [slides]);
+
+  const slideAnterior = useCallback(() => {
+    setSlideAtivo((prev) => (prev > 0 ? prev - 1 : prev));
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') proximoSlide();
+      if (e.key === 'ArrowLeft') slideAnterior();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [proximoSlide, slideAnterior]);
+
+  useEffect(() => {
+    const handleTouchStart = (e: TouchEvent) => {
+      if ((e.target as Element).closest('.modelo-3d') || (e.target as Element).closest('.gamma-grid')) {
+        touchStartX.current = null;
+        touchStartY.current = null;
+        return;
+      }
+      
+      touchStartX.current = e.changedTouches[0].screenX;
+      touchStartY.current = e.changedTouches[0].screenY;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (touchStartX.current === null || touchStartY.current === null) return;
+
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+
+      const diffX = touchStartX.current - touchEndX;
+      const diffY = touchStartY.current - touchEndY;
+
+      if (Math.abs(diffY) > Math.abs(diffX)) return; 
+
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) proximoSlide();
+        else slideAnterior();
+      }
+    };
+
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd);
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [proximoSlide, slideAnterior]);
+
+  if (slides.length === 0) return null;
+
+  const SlideAtual = slides[slideAtivo];
+
+  return (
+    <main className="main-wrapper">
+      <BackgroundWrapper slideAtivo={slideAtivo} />
+
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={slideAtivo}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -30 }}
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
+        >
+          <SlideAtual />
+        </motion.div>
+      </AnimatePresence>
+    </main>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\core\BackgroundWrapper\index.tsx
+================================================
+
+"use client";
+import { Canvas } from '@react-three/fiber';
+import KernelNeuralMesh from '../ThreeScene/KernelNeuralMesh';
+
+export default function BackgroundWrapper({ slideAtivo }: { slideAtivo: number }) {
+  return (
+    <div className="bg-canvas-container">
+      <Canvas camera={{ position: [0, 0, 14], fov: 55 }}>
+        <color attach="background" args={['#0A0D14']} />
+        <fog attach="fog" args={['#0A0D14', 15, 30]} />
+        <KernelNeuralMesh slideAtivo={slideAtivo} />
+      </Canvas>
+      <div className="bg-overlay"></div>
+    </div>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\core\ThreeScene\index.tsx
+================================================
+
+"use client";
+import { useRef, useMemo } from 'react';
+import { useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
+
+// 1. Tipagem do parâmetro adicionada
+export default function KernelNeuralMesh({ slideAtivo }: { slideAtivo?: number }) {
+  
+  // 2. Tipagem estrita dos Refs e inicialização com (null) exigida pelo TS
+  const groupRef = useRef<THREE.Group>(null);
+  const ringRef = useRef<THREE.Mesh>(null);
+  const coreRef = useRef<THREE.Mesh>(null);
+  const particlesRef = useRef<THREE.Points>(null);
+  
+  const particleCount = 400;
+  const ringRadius = 5.5;
+  const ringRadiusInner = 3.2;
+  
+  const [positions, velocities, colors] = useMemo(() => {
+    const pos = new Float32Array(particleCount * 3);
+    const vel = [];
+    const col = new Float32Array(particleCount * 3);
+    
+    for (let i = 0; i < particleCount; i++) {
+      const isOuterRing = i < particleCount / 2;
+      const radius = isOuterRing ? ringRadius : ringRadiusInner;
+      const angle = (i / (particleCount / 2)) * Math.PI * 2;
+      const yOffset = (Math.random() - 0.5) * 1.2;
+      
+      pos[i * 3] = Math.cos(angle) * radius;
+      pos[i * 3 + 1] = yOffset;
+      pos[i * 3 + 2] = Math.sin(angle) * radius;
+      
+      vel.push({
+        angleSpeed: (isOuterRing ? 0.008 : 0.012) + (Math.random() - 0.5) * 0.003,
+        ySpeed: (Math.random() - 0.5) * 0.008,
+        radius: radius,
+        isOuter: isOuterRing
+      });
+      
+      col[i * 3] = isOuterRing ? 1.0 : 1.0;
+      col[i * 3 + 1] = isOuterRing ? 0.42 : 0.82;
+      col[i * 3 + 2] = isOuterRing ? 0.21 : 0.4;
+    }
+    return [pos, vel, col];
+  }, []);
+  
+  const bgParticleCount = 800;
+  const bgPositions = useMemo(() => {
+    const pos = new Float32Array(bgParticleCount * 3);
+    for (let i = 0; i < bgParticleCount; i++) {
+      pos[i * 3] = (Math.random() - 0.5) * 35;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      pos[i * 3 + 2] = (Math.random() - 0.5) * 25 - 15;
+    }
+    return pos;
+  }, []);
+  
+  useFrame(({ clock }) => {
+    const time = clock.getElapsedTime();
+    
+    if (groupRef.current) {
+      groupRef.current.rotation.y = time * 0.1;
+      groupRef.current.rotation.x = Math.sin(time * 0.15) * 0.1;
+    }
+    
+    if (ringRef.current) {
+      const scale = 1 + Math.sin(time * 3) * 0.03;
+      ringRef.current.scale.set(scale, scale, scale);
+    }
+    
+    if (coreRef.current) {
+      const pulse = 0.8 + Math.sin(time * 5) * 0.2;
+      coreRef.current.scale.set(pulse, pulse, pulse);
+      
+      const mixFactor = (Math.sin(time * 2) + 1) / 2;
+      (coreRef.current.material as THREE.MeshStandardMaterial).color.setHex(
+        mixFactor > 0.5 ? 0xFF6B35 : 0xFFD166
+      );
+    }
+    
+    if (particlesRef.current) {
+      const positionsArray = particlesRef.current.geometry.attributes.position.array as Float32Array;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const v = velocities[i];
+        let angle = Math.atan2(positionsArray[i * 3 + 2], positionsArray[i * 3]);
+        
+        angle += v.angleSpeed;
+        
+        const newX = Math.cos(angle) * v.radius;
+        const newZ = Math.sin(angle) * v.radius;
+        const newY = positionsArray[i * 3 + 1] + v.ySpeed;
+        
+        positionsArray[i * 3] = newX;
+        positionsArray[i * 3 + 1] = newY > 1.5 ? -1.5 : (newY < -1.5 ? 1.5 : newY);
+        positionsArray[i * 3 + 2] = newZ;
+      }
+      
+      particlesRef.current.geometry.attributes.position.needsUpdate = true;
+    }
+  });
+  
+  return (
+    <group ref={groupRef}>
+      <mesh ref={coreRef} position={[0, 0, 0]}>
+        <sphereGeometry args={[0.8, 64, 64]} />
+        <meshStandardMaterial 
+          color="#FF6B35" 
+          emissive="#FF6B35" 
+          emissiveIntensity={0.8}
+          metalness={0.3}
+          roughness={0.2}
+        />
+      </mesh>
+      
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[1.1, 32, 32]} />
+        <meshBasicMaterial color="#FF6B35" transparent opacity={0.15} side={THREE.BackSide} />
+      </mesh>
+      
+      <mesh ref={ringRef} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[2.2, 0.05, 64, 200]} />
+        <meshStandardMaterial color="#FF6B35" emissive="#FF6B35" emissiveIntensity={0.5} />
+      </mesh>
+      
+      <mesh rotation={[Math.PI / 3, 0.5, 0]}>
+        <torusGeometry args={[2.8, 0.04, 64, 200]} />
+        <meshStandardMaterial color="#FFD166" emissive="#FFD166" emissiveIntensity={0.4} />
+      </mesh>
+      
+      <points ref={particlesRef}>
+        <bufferGeometry>
+          {/* 3. Correção: React Three Fiber usa a propriedade 'args' para inicializar o BufferAttribute */}
+          <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+          <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+        </bufferGeometry>
+        <pointsMaterial size={0.12} vertexColors transparent opacity={0.9} />
+      </points>
+      
+      <points>
+        <bufferGeometry>
+          {/* 3. Correção aplicada aqui também */}
+          <bufferAttribute attach="attributes-position" args={[bgPositions, 3]} />
+        </bufferGeometry>
+        <pointsMaterial size={0.06} color="#FFD166" transparent opacity={0.4} />
+      </points>
+      
+      <pointLight position={[0, 0, 0]} intensity={1.2} distance={20} color="#FF6B35" />
+      <ambientLight intensity={0.3} />
+      <directionalLight position={[5, 10, 5]} intensity={0.5} color="#FFD166" />
+    </group>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\core\ThreeScene\KernelNeuralMesh.tsx
+================================================
+
+"use client";
+import { useRef, useMemo } from 'react';
+import { useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
+
+export default function KernelNeuralMesh({ slideAtivo }: { slideAtivo: number }) {
+  // Tipando os refs do Three.js
+  const groupRef = useRef<THREE.Group>(null);
+  const ringRef = useRef<THREE.Mesh>(null);
+  const coreRef = useRef<THREE.Mesh>(null);
+  const particlesRef = useRef<THREE.Points>(null);
+  
+  const particleCount = 400;
+  const ringRadius = 5.5;
+  const ringRadiusInner = 3.2;
+  
+  const [positions, velocities, colors] = useMemo(() => {
+    const pos = new Float32Array(particleCount * 3);
+    const vel = [];
+    const col = new Float32Array(particleCount * 3);
+    
+    for (let i = 0; i < particleCount; i++) {
+      const isOuterRing = i < particleCount / 2;
+      const radius = isOuterRing ? ringRadius : ringRadiusInner;
+      const angle = (i / (particleCount / 2)) * Math.PI * 2;
+      const yOffset = (Math.random() - 0.5) * 1.2;
+      
+      pos[i * 3] = Math.cos(angle) * radius;
+      pos[i * 3 + 1] = yOffset;
+      pos[i * 3 + 2] = Math.sin(angle) * radius;
+      
+      vel.push({
+        angleSpeed: (isOuterRing ? 0.008 : 0.012) + (Math.random() - 0.5) * 0.003,
+        ySpeed: (Math.random() - 0.5) * 0.008,
+        radius: radius,
+        isOuter: isOuterRing
+      });
+      
+      col[i * 3] = isOuterRing ? 1.0 : 1.0;
+      col[i * 3 + 1] = isOuterRing ? 0.42 : 0.82;
+      col[i * 3 + 2] = isOuterRing ? 0.21 : 0.4;
+    }
+    return [pos, vel, col];
+  }, []);
+  
+  const bgParticleCount = 800;
+  const bgPositions = useMemo(() => {
+    const pos = new Float32Array(bgParticleCount * 3);
+    for (let i = 0; i < bgParticleCount; i++) {
+      pos[i * 3] = (Math.random() - 0.5) * 35;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      pos[i * 3 + 2] = (Math.random() - 0.5) * 25 - 15;
+    }
+    return pos;
+  }, []);
+  
+useFrame(({ clock }) => {
+    const time = clock.getElapsedTime();
+    
+    if (groupRef.current) {
+      // O EFEITO UAU: Interpolação suave (Lerp) para girar a malha baseada no número do slide!
+      // Cada slide gira o núcleo em um ângulo diferente, dando sensação de progressão.
+      const targetRotationY = (time * 0.05) + (slideAtivo * 0.8);
+      groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetRotationY, 0.05);
+      
+      // Flutuação natural
+      groupRef.current.rotation.x = Math.sin(time * 0.15) * 0.1;
+    }
+    
+    if (ringRef.current) {
+      const scale = 1 + Math.sin(time * 3) * 0.03;
+      ringRef.current.scale.set(scale, scale, scale);
+    }
+    
+    if (coreRef.current) {
+      const pulse = 0.8 + Math.sin(time * 5) * 0.2;
+      coreRef.current.scale.set(pulse, pulse, pulse);
+      
+      const mixFactor = (Math.sin(time * 2) + 1) / 2;
+      (coreRef.current.material as THREE.MeshStandardMaterial).color.setHex(
+        mixFactor > 0.5 ? 0xFF6B35 : 0xFFD166
+      );
+    }
+    
+    if (particlesRef.current) {
+      const positionsArray = particlesRef.current.geometry.attributes.position.array as Float32Array;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const v = velocities[i];
+        let angle = Math.atan2(positionsArray[i * 3 + 2], positionsArray[i * 3]);
+        
+        angle += v.angleSpeed;
+        
+        const newX = Math.cos(angle) * v.radius;
+        const newZ = Math.sin(angle) * v.radius;
+        const newY = positionsArray[i * 3 + 1] + v.ySpeed;
+        
+        positionsArray[i * 3] = newX;
+        positionsArray[i * 3 + 1] = newY > 1.5 ? -1.5 : (newY < -1.5 ? 1.5 : newY);
+        positionsArray[i * 3 + 2] = newZ;
+      }
+      
+      particlesRef.current.geometry.attributes.position.needsUpdate = true;
+    }
+  });
+  
+return (
+    <group ref={groupRef}>
+      {/* Núcleo central pulsante com glow */}
+      <mesh ref={coreRef} position={[0, 0, 0]}>
+        <sphereGeometry args={[0.8, 64, 64]} />
+        <meshStandardMaterial 
+          color="#FF6B35" 
+          emissive="#FF6B35" 
+          emissiveIntensity={0.8}
+          metalness={0.3}
+          roughness={0.2}
+        />
+      </mesh>
+      
+      {/* Glow / Halo do núcleo */}
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[1.1, 32, 32]} />
+        <meshBasicMaterial color="#FF6B35" transparent opacity={0.15} side={THREE.BackSide} />
+      </mesh>
+      
+      {/* Anel de energia externo */}
+      <mesh ref={ringRef} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[2.2, 0.05, 64, 200]} />
+        <meshStandardMaterial color="#FF6B35" emissive="#FF6B35" emissiveIntensity={0.5} />
+      </mesh>
+      
+      {/* Segundo anel inclinado */}
+      <mesh rotation={[Math.PI / 3, 0.5, 0]}>
+        <torusGeometry args={[2.8, 0.04, 64, 200]} />
+        <meshStandardMaterial color="#FFD166" emissive="#FFD166" emissiveIntensity={0.4} />
+      </mesh>
+      
+      {/* Partículas orbitais (anel duplo) */}
+      <points ref={particlesRef}>
+        <bufferGeometry>
+          {/* CORREÇÃO APLICADA AQUI: Usando args={[array, itemSize]} */}
+          <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+          <bufferAttribute attach="attributes-color" args={[colors, 3]} />
+        </bufferGeometry>
+        <pointsMaterial size={0.12} vertexColors transparent opacity={0.9} />
+      </points>
+      
+      {/* Partículas de fundo (estrelas distantes) */}
+      <points>
+        <bufferGeometry>
+          {/* CORREÇÃO APLICADA AQUI TAMBÉM */}
+          <bufferAttribute attach="attributes-position" args={[bgPositions, 3]} />
+        </bufferGeometry>
+        <pointsMaterial size={0.06} color="#FFD166" transparent opacity={0.4} />
+      </points>
+      
+      {/* Luzes */}
+      <pointLight position={[0, 0, 0]} intensity={1.2} distance={20} color="#FF6B35" />
+      <ambientLight intensity={0.3} />
+      <directionalLight position={[5, 10, 5]} intensity={0.5} color="#FFD166" />
+    </group>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\core\ThreeScene\styles.module.css
+================================================
+
+.bg-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, #0A0D14 85%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\01-Slide1\index.tsx
+================================================
+
+"use client";
+import { Cpu } from 'lucide-react';
+import { SlideContainer, PainelConteudo, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, Subtitulo, TextoApoio, MiniTitulo } from '@/components/ui/Typography';
+
+export default function Slide1() {
+  const participantes = ["Isaac", "Thiago", "Arthur", "Pedro", "Daniel", "Guilherme"];
+
+  return (
+    <SlideContainer layout="centralizado">
+      <PainelConteudo style={{ alignItems: 'center', textAlign: 'center' }}>
+        <div className="presenter-badge">Isaac</div>
+        
+        <Cpu size={80} color="#FF6B35" />
+        
+        <TituloSlide style={{ borderBottom: 'none' }}>O Coração do Sistema</TituloSlide>
+        <Subtitulo>Kernel: Estrutura, Processos e Escalonamento</Subtitulo>
+
+        <TextoApoio>
+          O Kernel é o núcleo essencial de todo sistema operacional moderno. 
+          Exploraremos sua arquitetura, gerenciamento de processos e como ele equilibrada cargas de trabalho de forma inteligente.
+        </TextoApoio>
+
+        <GridLadoALado>
+          <BlocoInformativo style={{ alignItems: 'center', textAlign: 'center' }}>
+            <MiniTitulo>O que é?</MiniTitulo>
+            <TextoApoio>Núcleo que conecta hardware e software, funcionando como uma ponte invisível mas essencial.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo style={{ alignItems: 'center', textAlign: 'center' }}>
+            <MiniTitulo>Funções</MiniTitulo>
+            <TextoApoio>Gerencia processos, memória, arquivos e entrada/saída com segurança e eficiência.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo style={{ alignItems: 'center', textAlign: 'center' }}>
+            <MiniTitulo>Equipe</MiniTitulo>
+            <div className="lista-participantes">
+              {participantes.map(nome => <span key={nome}>{nome}</span>)}
+            </div>
+          </BlocoInformativo>
+        </GridLadoALado>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\01-Slide1\styles.module.css
+================================================
+
+.centeredPanel { align-items: center; text-align: center; }
+.cpuIcon { margin-bottom: 1rem; }
+.titleNoBorder { border: none; margin-bottom: 0.5rem; }
+.contentConstrained { margin-top: 1rem; max-width: 85%; margin-left: auto; margin-right: auto; }
+.gridMargin { margin-top: 1.5rem; }
+.cardCentered { align-items: center; }
+.cardText { font-size: 0.9rem; text-align: center; }
+.teamGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2rem; text-align: center; font-size: 0.8rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\02-Slide2\index.tsx
+================================================
+
+"use client";
+import { BookOpen, Cpu, Layers } from 'lucide-react';
+import { SlideContainer, PainelConteudo, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, Subtitulo, TextoApoio, Destaque, MiniTitulo } from '@/components/ui/Typography';
+
+export default function Slide2() {
+  return (
+    <SlideContainer layout="centralizado">
+      <PainelConteudo>
+        <div className="presenter-badge">Daniel</div>
+        <TituloSlide style={{ textAlign: 'center', borderBottom: 'none' }}>O que é Kernel?</TituloSlide>
+        <Subtitulo style={{ textAlign: 'center' }}>Definição e Papéis Fundamentais</Subtitulo>
+
+        <TextoApoio>
+          O <strong>kernel</strong> é o núcleo do sistema operacional, responsável por controlar diretamente 
+          os recursos do hardware e fornecer serviços básicos para os programas. 
+          Pense nele como o <strong>“maestro de uma orquestra”</strong> – sem ele, cada instrumento (hardware) tocaria em desarmonia.
+        </TextoApoio>
+        
+        <Destaque>
+          "Conjunto de rotinas que oferece serviços aos usuários e às aplicações" — Machado & Maia
+        </Destaque>
+        
+        <TextoApoio>
+          Ele atua como uma <strong>camada intermediária entre hardware e software</strong>, garantindo que 
+          programas possam ser executados de forma segura e eficiente.
+        </TextoApoio>
+
+        <GridLadoALado>
+          <BlocoInformativo>
+            <MiniTitulo><Layers size={20} /> Abstração</MiniTitulo>
+            <TextoApoio>Isola aplicações das complexidades do hardware, oferecendo uma visão simples e uniforme.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo>
+            <MiniTitulo><Cpu size={20} /> Gerenciador</MiniTitulo>
+            <TextoApoio>Distribui CPU, memória e dispositivos como um administrador de tráfego aéreo.</TextoApoio>
+          </BlocoInformativo>
+        </GridLadoALado>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\02-Slide2\styles.module.css
+================================================
+
+.textCenter { text-align: center; }
+.contentMargin { margin-bottom: 1.5rem; }
+.quote { font-style: italic; border-left: 3px solid #FF6B35; padding-left: 1rem; margin-top: 0.5rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.9rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\03-Slide3\index.tsx
+================================================
+
+"use client";
+import { CheckCircle, AlertTriangle, Zap, Activity } from 'lucide-react';
+import { SlideContainer, PainelConteudo, PainelMidia, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, Subtitulo, TextoApoio, MiniTitulo, Legenda } from '@/components/ui/Typography';
+
+export default function Slide3() {
+  return (
+    <SlideContainer layout="padrao">
+      <PainelMidia>
+        <img src="/images/kernel-monolitico.png" alt="Kernel Monolítico" />
+      </PainelMidia>
+      <PainelConteudo>
+        <div className="presenter-badge">Daniel</div>
+        <TituloSlide>Kernel Monolítico</TituloSlide>
+        <Subtitulo>Máxima eficiência em um único endereço de memória</Subtitulo>
+        
+        <TextoApoio>
+          Serviços como <strong>I/O, Memória e Drivers</strong> compartilham o mesmo espaço do núcleo. 
+          A comunicação ocorre via chamadas diretas de função, sem troca de contexto entre camadas.
+        </TextoApoio>
+
+        <GridLadoALado>
+          <BlocoInformativo>
+            <MiniTitulo style={{ color: '#00FF88' }}><Zap size={24} /> Performance</MiniTitulo>
+            <TextoApoio>Latência quase zero. Ideal para sistemas de tempo real e alto tráfego.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo>
+            <MiniTitulo style={{ color: '#FF4B4B' }}><Activity size={24} /> Fragilidade</MiniTitulo>
+            <TextoApoio>Erro em driver de terceiros pode causar <strong>Panic/BSOD</strong> total.</TextoApoio>
+          </BlocoInformativo>
+        </GridLadoALado>
+        
+        <Legenda>Dominante no ecossistema Linux e servidores de missão crítica.</Legenda>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\03-Slide3\styles.module.css
+================================================
+
+.gridMargin { margin-top: 1rem; }
+.cardSuccess { border-color: rgba(255, 107, 53, 0.3); }
+.cardWarning { border-color: rgba(255, 107, 53, 0.3); }
+.titleSuccess { display: flex; align-items: center; gap: 0.5rem; color: #FFD166; }
+.titleWarning { display: flex; align-items: center; gap: 0.5rem; color: #FF6B35; }
+.cardText { font-size: 0.85rem; }
+.footerText { margin-top: 0.8rem; font-size: 0.9rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\04-Slide4\index.tsx
+================================================
+
+"use client";
+import { CheckCircle, AlertTriangle } from 'lucide-react';
+import Image from 'next/image';
+import { SlideContainer, PainelConteudo, PainelMidia, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, Subtitulo, TextoApoio, MiniTitulo, Legenda } from '@/components/ui/Typography';
+
+export default function Slide4() {
+  return (
+    <SlideContainer layout="reverso">
+      <PainelMidia>
+        <Image 
+          src="/images/microkernel.png" 
+          alt="Microkernel" 
+          width={800} 
+          height={600} 
+          style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+          priority
+        />
+      </PainelMidia>
+      <PainelConteudo>
+        <div className="presenter-badge">Thiago</div>
+        <TituloSlide>Microkernel</TituloSlide>
+        <Subtitulo>O mínimo essencial no núcleo</Subtitulo>
+        
+        <TextoApoio>
+          Mantém <strong>apenas o essencial</strong> no núcleo (escalonamento, IPC, memória básica). 
+          Os demais serviços rodam como processos em espaço de usuário, garantindo isolamento.
+        </TextoApoio>
+
+        <GridLadoALado>
+          <BlocoInformativo style={{ borderColor: 'rgba(255, 209, 102, 0.3)' }}>
+            <MiniTitulo style={{ color: '#FFD166' }}><CheckCircle size={20} /> Vantagens</MiniTitulo>
+            <TextoApoio>Alta segurança, maior estabilidade e fácil manutenção.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo style={{ borderColor: 'rgba(255, 107, 53, 0.3)' }}>
+            <MiniTitulo style={{ color: '#FF6B35' }}><AlertTriangle size={20} /> Desvantagens</MiniTitulo>
+            <TextoApoio>Desempenho inferior devido ao overhead de comunicação.</TextoApoio>
+          </BlocoInformativo>
+        </GridLadoALado>
+        
+        <Legenda>Onde é aplicado: MINIX, QNX (sistemas críticos de alta confiabilidade)</Legenda>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\04-Slide4\styles.module.css
+================================================
+
+.gridMargin { margin-top: 1rem; }
+.cardSuccess { border-color: rgba(255, 209, 102, 0.3); }
+.titleSuccess { display: flex; align-items: center; gap: 0.5rem; color: #FFD166; }
+.cardWarning { border-color: rgba(255, 107, 53, 0.3); }
+.titleWarning { display: flex; align-items: center; gap: 0.5rem; color: #FF6B35; }
+.cardText { font-size: 0.85rem; }
+.footerText { margin-top: 0.8rem; font-size: 0.9rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\05-Slide5\index.tsx
+================================================
+
+"use client";
+import { ShieldCheck, Cpu, HardDrive } from 'lucide-react';
+import { SlideContainer, PainelConteudo, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, Subtitulo, TextoApoio, MiniTitulo, Destaque } from '@/components/ui/Typography';
+
+export default function Slide5() {
+  return (
+    <SlideContainer layout="centralizado">
+      <PainelConteudo>
+        <div className="presenter-badge">Thiago</div>
+        <TituloSlide style={{ textAlign: 'center' }}>O Modelo Híbrido</TituloSlide>
+        <Subtitulo style={{ textAlign: 'center' }}>Flexibilidade para Usuários e Estabilidade para o Núcleo</Subtitulo>
+
+        <TextoApoio style={{ textAlign: 'center', margin: '0 auto' }}>
+          Não é puramente monolítico nem microkernel. Ele move drivers e serviços para o espaço de usuário 
+          sempre que possível, mas mantém funções críticas de I/O no núcleo para não perder velocidade. 
+          Uma analogia: <strong>um prédio com escritórios internos e áreas comuns</strong> – cada setor tem autonomia, mas a infraestrutura crítica é compartilhada.
+        </TextoApoio>
+
+        <GridLadoALado>
+          <BlocoInformativo>
+            <MiniTitulo><Cpu size={24} /> Windows NT</MiniTitulo>
+            <TextoApoio>Usa camadas de abstração de hardware (HAL) para rodar em diversos chipsets.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo>
+            <MiniTitulo><HardDrive size={24} /> macOS (XNU)</MiniTitulo>
+            <TextoApoio>Baseado no Mach (microkernel) com componentes BSD (monolíticos).</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo>
+            <MiniTitulo><ShieldCheck size={24} /> Android</MiniTitulo>
+            <TextoApoio>Utiliza o kernel Linux mas isola serviços via Hardware Abstraction Layers.</TextoApoio>
+          </BlocoInformativo>
+        </GridLadoALado>
+
+        <Destaque>
+          A arquitetura moderna foca em <strong>Segurança vs Velocidade</strong>: Se um driver falha, o OS reinicia apenas o driver.
+        </Destaque>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\05-Slide5\styles.module.css
+================================================
+
+.textCenter { text-align: center; }
+.cardMargin { margin-bottom: 1.5rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.9rem; }
+.cardTextSmall { font-size: 0.85rem; margin-top: 0.5rem; }
+.comparisonTitle { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.analogyText { margin-top: 1rem; font-style: italic; font-size: 0.9rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\06-Slide6\index.tsx
+================================================
+
+"use client";
+import { GitBranch, Clock, Cpu } from 'lucide-react';
+import { SlideContainer, PainelConteudo, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, TextoApoio, Destaque, MiniTitulo } from '@/components/ui/Typography';
+
+export default function Slide6() {
+  return (
+    <SlideContainer layout="centralizado">
+      <PainelConteudo>
+        <div className="presenter-badge">Arthur</div>
+        <TituloSlide style={{ textAlign: 'center' }}>Processos: A Unidade de Trabalho</TituloSlide>
+        
+        <TextoApoio>
+          Um <strong>processo</strong> é um programa em execução, contendo código, dados e estado 
+          (registradores, contador de programa). O kernel é o <strong>“juiz”</strong> que decide qual processo usa a CPU e por quanto tempo.
+        </TextoApoio>
+        
+        <Destaque>
+          "O kernel decide qual processo usa a CPU e quando." — Understanding the Linux Kernel
+        </Destaque>
+
+        <GridLadoALado>
+          <BlocoInformativo>
+            <MiniTitulo><GitBranch size={20} /> Ciclo de Vida</MiniTitulo>
+            <TextoApoio>Criação e finalização via Fork, exec e wait.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo>
+            <MiniTitulo><Cpu size={20} /> Threads</MiniTitulo>
+            <TextoApoio>Controle de unidades menores de execução dentro de um processo (como “sub-tarefas”).</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo>
+            <MiniTitulo><Clock size={20} /> Escalonamento</MiniTitulo>
+            <TextoApoio>Decide qual processo executa e por quanto tempo na CPU, garantindo justiça e eficiência.</TextoApoio>
+          </BlocoInformativo>
+        </GridLadoALado>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\06-Slide6\styles.module.css
+================================================
+
+.textCenter { text-align: center; }
+.contentMargin { margin-bottom: 1rem; }
+.quote { font-style: italic; border-left: 3px solid #FFD166; padding-left: 1rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.85rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\07-Slide7\index.tsx
+================================================
+
+"use client";
+import { Activity, ListChecks, Repeat } from 'lucide-react';
+import { SlideContainer, PainelConteudo, PainelMidia, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, TextoApoio, MiniTitulo } from '@/components/ui/Typography';
+
+export default function Slide7() {
+  return (
+    <SlideContainer layout="padrao">
+      <PainelMidia>
+        <img src="/images/estados-processo.png" alt="Estados do Processo" />
+      </PainelMidia>
+      <PainelConteudo>
+        <div className="presenter-badge">Arthur</div>
+        <TituloSlide>Estados e Escalonamento</TituloSlide>
+        
+        <TextoApoio>
+          Um processo transita entre estados: <strong>Novo</strong> (criado), <strong>Pronto</strong> (aguardando CPU), 
+          <strong>Executando</strong>, <strong>Esperando</strong> (I/O) e <strong>Finalizado</strong>.
+        </TextoApoio>
+
+        <BlocoInformativo>
+          <MiniTitulo><ListChecks size={20} /> Algoritmos de Escalonamento</MiniTitulo>
+          <TextoApoio>
+            • FIFO (First In, First Out) – o primeiro a chegar é o primeiro a executar.<br/>
+            • Round Robin (tempo compartilhado) – cada processo recebe um fatia de tempo.<br/>
+            • Prioridade (dinâmica ou estática) – processos mais importantes executam primeiro.
+          </TextoApoio>
+        </BlocoInformativo>
+
+        <BlocoInformativo>
+          <MiniTitulo><Repeat size={20} /> Troca de Contexto</MiniTitulo>
+          <TextoApoio>
+            O kernel salva o estado de um processo (contexto) e carrega o do próximo, permitindo a multitarefa de forma transparente.
+          </TextoApoio>
+        </BlocoInformativo>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\07-Slide7\styles.module.css
+================================================
+
+.listText { font-size: 0.85rem; }
+.cardMargin { margin-top: 1rem; }
+.cardMarginSmall { margin-top: 0.8rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.85rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\08-Slide8\index.tsx
+================================================
+
+"use client";
+import { Flame, Database, ArrowRightLeft } from 'lucide-react';
+import { SlideContainer, PainelConteudo, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, TextoApoio, MiniTitulo, Subtitulo } from '@/components/ui/Typography';
+
+export default function Slide8() {
+  return (
+    <SlideContainer layout="centralizado">
+      <PainelConteudo>
+        <div className="presenter-badge">Pedro</div>
+        <TituloSlide style={{ textAlign: 'center' }}>Perfis de Execução</TituloSlide>
+        <Subtitulo style={{ textAlign: 'center' }}>Como o Kernel identifica e prioriza o Processamento</Subtitulo>
+        
+        <GridLadoALado>
+          <BlocoInformativo style={{ borderLeft: '8px solid #FF6B35' }}>
+            <MiniTitulo style={{ color: '#FF6B35' }}><Flame size={28} /> CPU-Bound</MiniTitulo>
+            <TextoApoio>
+              O processo está limitado pela velocidade do processador.
+              <br/><br/>
+              • <strong>Foco:</strong> Cálculos, IA, Encriptação.<br/>
+              • <strong>Comportamento:</strong> Usa 100% do núcleo por longos períodos.<br/>
+              • <strong>Analogia:</strong> Um matemático resolvendo problemas complexos sem parar.
+            </TextoApoio>
+          </BlocoInformativo>
+          
+          <BlocoInformativo style={{ borderLeft: '8px solid #FFD166' }}>
+            <MiniTitulo style={{ color: '#FFD166' }}><Database size={28} /> I/O-Bound</MiniTitulo>
+            <TextoApoio>
+              O processo gasta mais tempo esperando por dados (Rede/Disco).
+              <br/><br/>
+              • <strong>Foco:</strong> Web Servers, Bancos de Dados.<br/>
+              • <strong>Comportamento:</strong> Frequentemente entra em estado de <strong>Waiting</strong>.<br/>
+              • <strong>Analogia:</strong> Um atendente de call center que passa a maior parte do tempo esperando o telefone tocar.
+            </TextoApoio>
+          </BlocoInformativo>
+        </GridLadoALado>
+
+        <BlocoInformativo style={{ textAlign: 'center', background: 'rgba(255, 107, 53, 0.1)' }}>
+          <TextoApoio>
+            <ArrowRightLeft size={20} style={{ verticalAlign: 'middle', marginRight: '10px' }}/>
+            O Kernel inteligente faz o <strong>Interleaving</strong>: roda CPU-Bound enquanto o I/O-Bound espera o disco, maximizando a utilização do processador.
+          </TextoApoio>
+        </BlocoInformativo>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\08-Slide8\styles.module.css
+================================================
+
+.textCenter { text-align: center; }
+.cardWarning { border-color: #FF6B35; }
+.titleWarning { display: flex; align-items: center; gap: 0.5rem; }
+.cardSuccess { border-color: #FFD166; }
+.titleSuccess { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.85rem; }
+.tableMargin { margin-top: 1rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\09-Slide9\index.tsx
+================================================
+
+"use client";
+import { GitMerge, MessageSquare } from 'lucide-react';
+import { SlideContainer, PainelConteudo, PainelMidia, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, Subtitulo, TextoApoio, MiniTitulo } from '@/components/ui/Typography';
+
+export default function Slide9() {
+  return (
+    <SlideContainer layout="reverso">
+      <PainelMidia>
+        <img src="/images/ipc.png" alt="Mecanismos de IPC" />
+      </PainelMidia>
+      <PainelConteudo>
+        <div className="presenter-badge">Pedro</div>
+        <TituloSlide>Comunicação (IPC)</TituloSlide>
+        <Subtitulo>Como processos trocam informações</Subtitulo>
+
+        <TextoApoio>
+          O kernel fornece mecanismos para processos conversarem: <strong>Pipes</strong> (unidirecional), 
+          <strong>Filas de mensagens</strong>, <strong>Memória compartilhada</strong> e <strong>Sinais</strong>.
+        </TextoApoio>
+
+        <BlocoInformativo>
+          <MiniTitulo><GitMerge size={20} /> Sincronização de Processos</MiniTitulo>
+          <TextoApoio>
+            O kernel controla a sincronização usando <strong>semáforos</strong> e <strong>mutexes</strong> 
+            para evitar condições de corrida em recursos compartilhados – como um “semáforo de trânsito” para dados.
+          </TextoApoio>
+        </BlocoInformativo>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\09-Slide9\styles.module.css
+================================================
+
+.listText { font-size: 0.85rem; }
+.cardMargin { margin-top: 1rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.85rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\10-Slide10\index.tsx
+================================================
+
+"use client";
+import { Database, ListOrdered, Hash } from 'lucide-react';
+import { SlideContainer, PainelConteudo, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, TextoApoio, MiniTitulo } from '@/components/ui/Typography';
+
+export default function Slide10() {
+  return (
+    <SlideContainer layout="centralizado">
+      <PainelConteudo>
+        <div className="presenter-badge">Guilherme</div>
+        <TituloSlide style={{ textAlign: 'center' }}>Estruturas Internas do Kernel</TituloSlide>
+        
+        <TextoApoio style={{ textAlign: 'center', margin: '0 auto' }}>
+          Para gerenciar o hardware e o software, o sistema utiliza estruturas de dados complexas e otimizadas – as “engrenagens” invisíveis do sistema.
+        </TextoApoio>
+
+        <GridLadoALado>
+          <BlocoInformativo>
+            <MiniTitulo><Database size={20} /> PCB</MiniTitulo>
+            <TextoApoio>O "Process Control Block" guarda ID, estado e registradores de cada processo.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo>
+            <MiniTitulo><ListOrdered size={20} /> Filas</MiniTitulo>
+            <TextoApoio>Filas de escalonamento para processos prontos ou aguardando dispositivo.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo>
+            <MiniTitulo><Hash size={20} /> Tabelas</MiniTitulo>
+            <TextoApoio>Tabelas de memória para mapeamento de páginas virtuais em frames físicos.</TextoApoio>
+          </BlocoInformativo>
+        </GridLadoALado>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\10-Slide10\styles.module.css
+================================================
+
+.textCenter { text-align: center; }
+.contentMargin { margin-bottom: 1rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.85rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\11-Slide11\index.tsx
+================================================
+
+"use client";
+import { TrendingUp, TrendingDown, Award } from 'lucide-react';
+import { SlideContainer, PainelConteudo, PainelMidia, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, Subtitulo, TextoApoio, MiniTitulo } from '@/components/ui/Typography';
+
+export default function Slide11() {
+  return (
+    <SlideContainer layout="padrao">
+      <PainelMidia>
+        <img src="/images/windows-scheduler.png" alt="Escalonador do Windows" />
+      </PainelMidia>
+      <PainelConteudo>
+        <div className="presenter-badge">Guilherme</div>
+        <TituloSlide>Tratamento no Windows</TituloSlide>
+        <Subtitulo>Escalonamento Preemptivo Dinâmico</Subtitulo>
+
+        <TextoApoio>
+          O Windows utiliza um escalonador preemptivo totalmente baseado em níveis de prioridade dinâmicos.
+        </TextoApoio>
+
+        <GridLadoALado>
+          <BlocoInformativo>
+            <MiniTitulo style={{ color: '#FF6B35' }}><TrendingDown size={18} /> CPU-bound</MiniTitulo>
+            <TextoApoio>Têm a prioridade reduzida para evitar monopólio do processador.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo>
+            <MiniTitulo style={{ color: '#FFD166' }}><TrendingUp size={18} /> I/O-bound</MiniTitulo>
+            <TextoApoio>Recebem aumento temporário de prioridade ao retornar de uma operação I/O.</TextoApoio>
+          </BlocoInformativo>
+        </GridLadoALado>
+
+        <BlocoInformativo style={{ borderColor: '#FFD166' }}>
+          <MiniTitulo><Award size={18} /> Priority Boosting</MiniTitulo>
+          <TextoApoio>
+            Aplica boost de prioridade em tarefas interativas, garantindo responsividade ao usuário – como acelerar um carro em uma subida.
+          </TextoApoio>
+        </BlocoInformativo>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\11-Slide11\styles.module.css
+================================================
+
+.gridMargin { margin-top: 0.5rem; }
+.titleWarning { display: flex; align-items: center; gap: 0.5rem; color: #FF6B35; }
+.titleSuccess { display: flex; align-items: center; gap: 0.5rem; color: #FFD166; }
+.cardText { font-size: 0.8rem; }
+.highlightCard { margin-top: 0.8rem; border-color: #FFD166; }
+.highlightTitle { display: flex; align-items: center; gap: 0.5rem; }
+.highlightText { font-size: 0.85rem; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\12-Slide12\index.tsx
+================================================
+
+"use client";
+import { Building, Home, Factory } from 'lucide-react';
+import { SlideContainer, PainelConteudo, GridLadoALado, BlocoInformativo } from '@/components/ui/Containers';
+import { TituloSlide, TextoApoio, MiniTitulo } from '@/components/ui/Typography';
+
+export default function Slide12() {
+  return (
+    <SlideContainer layout="centralizado">
+      <PainelConteudo>
+        <div className="presenter-badge">Isaac</div>
+        <TituloSlide style={{ textAlign: 'center' }}>Entendendo com Analogias</TituloSlide>
+        
+        <GridLadoALado>
+          <BlocoInformativo style={{ alignItems: 'center', textAlign: 'center' }}>
+            <Building size={40} color="#FF6B35" />
+            <MiniTitulo>Monolítico</MiniTitulo>
+            <TextoApoio>Um prédio único com todos os departamentos juntos. Comunicação rápida, mas um incêndio destrói tudo.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo style={{ alignItems: 'center', textAlign: 'center' }}>
+            <Home size={40} color="#FFD166" />
+            <MiniTitulo>Microkernel</MiniTitulo>
+            <TextoApoio>Várias casas separadas conversando via correios. Seguro, mas cada mensagem demora.</TextoApoio>
+          </BlocoInformativo>
+          <BlocoInformativo style={{ alignItems: 'center', textAlign: 'center' }}>
+            <Factory size={40} color="#FF6B35" />
+            <MiniTitulo>Híbrido</MiniTitulo>
+            <TextoApoio>Complexo industrial com alas interconectadas e áreas isoladas. Equilíbrio entre velocidade e segurança.</TextoApoio>
+          </BlocoInformativo>
+        </GridLadoALado>
+
+        <BlocoInformativo style={{ background: 'rgba(255, 107, 53, 0.1)', textAlign: 'center', alignItems: 'center' }}>
+          <MiniTitulo>Resumo Visual</MiniTitulo>
+          <TextoApoio>
+            Monolítico: Rápido, mas frágil | Microkernel: Seguro, mas lento | Híbrido: O melhor equilíbrio.
+          </TextoApoio>
+        </BlocoInformativo>
+      </PainelConteudo>
+    </SlideContainer>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\slides\12-Slide12\styles.module.css
+================================================
+
+.textCenter { text-align: center; }
+.cardCentered { align-items: center; text-align: center; }
+.cardText { font-size: 0.85rem; }
+.summaryCard { margin-top: 1rem; background: rgba(255, 107, 53, 0.1); }
+.summaryText { font-size: 0.9rem; text-align: center; }
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\ui\VisualizadorGLB\index.tsx
+================================================
+
+"use client";
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF, Center, Environment, Html } from '@react-three/drei';
+import { useState, useEffect } from 'react';
+import * as THREE from 'three';
+
+// Tipagem adicionada aqui
+function Modelo({ caminhoArquivo, escala }: { caminhoArquivo: string, escala: number }) {
+  const { scene } = useGLTF(caminhoArquivo);
+  return (
+    <Center>
+      <primitive object={scene} scale={escala} />
+    </Center>
+  );
+}
+
+function TouchIndicator() {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(false), 4000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <Html center pointerEvents="none">
+      <div className="mobile-only touch-hint">
+        <div className="touch-icon">👆</div>
+        <span>Toque e arraste para explorar</span>
+      </div>
+    </Html>
+  );
+}
+
+// E Tipagem adicionada aqui
+export default function VisualizadorGLB({ arquivo, escala = 1 }: { arquivo: string, escala?: number }) {
+  return (
+    <Canvas camera={{ position: [0, 2, 5], fov: 45 }} dpr={[1, 1.5]}>
+      <ambientLight intensity={0.6} />
+      <directionalLight position={[10, 10, 10]} intensity={1.5} />
+      <Environment preset="city" />
+      
+      <Modelo caminhoArquivo={arquivo} escala={escala} />
+      <TouchIndicator />
+
+      <OrbitControls
+        autoRotate
+        autoRotateSpeed={1}
+        enableZoom={true}
+        enablePan={false} 
+        minDistance={1}
+        maxDistance={10}
+        enableDamping={true}
+        dampingFactor={0.05} 
+        touches={{
+          ONE: THREE.TOUCH.ROTATE,
+          TWO: THREE.TOUCH.DOLLY_PAN
+        }}
+      />
+    </Canvas>
+  );
+}
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\ui\Containers.tsx
+================================================
+
+import React from 'react';
+
+interface ContainerProps {
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties; // <-- ESSA LINHA RESOLVE 80% DOS ERROS DOS SLIDES
+}
+
+interface SlideContainerProps extends ContainerProps {
+  layout?: 'padrao' | 'reverso' | 'centralizado';
+}
+
+export const SlideContainer = ({ children, layout = 'padrao', className = '', style }: SlideContainerProps) => (
+  <div className={`slide-container layout-${layout} ${className}`} style={style}>
+    {children}
+  </div>
+);
+
+export const PainelConteudo = ({ children, className = '', style }: ContainerProps) => (
+  <div className={`painel-conteudo ${className}`} style={style}>
+    {children}
+  </div>
+);
+
+export const PainelMidia = ({ children, className = '', style }: ContainerProps) => (
+  <div className={`painel-midia ${className}`} style={style}>
+    {children}
+  </div>
+);
+
+export const GridLadoALado = ({ children, className = '', style }: ContainerProps) => (
+  <div className={`grid-lado-a-lado ${className}`} style={style}>
+    {children}
+  </div>
+);
+
+export const BlocoInformativo = ({ children, className = '', style }: ContainerProps) => (
+  <div className={`bloco-informativo ${className}`} style={style}>
+    {children}
+  </div>
+);
+
+
+================================================
+ARQUIVO: C:\Users\DG\Documents\Projetos\Fatec\Slides\aula-invertida\src\components\ui\Typography.tsx
+================================================
+
+import React from 'react';
+
+interface TypographyProps {
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export const TituloApresentacao = ({ children, className = '', style }: TypographyProps) => (
+  <h1 className={`titulo-apresentacao ${className}`} style={style}>{children}</h1>
+);
+
+export const TituloSlide = ({ children, className = '', style }: TypographyProps) => (
+  <h2 className={`titulo-slide ${className}`} style={style}>{children}</h2>
+);
+
+export const Subtitulo = ({ children, className = '', style }: TypographyProps) => (
+  <h3 className={`subtitulo ${className}`} style={style}>{children}</h3>
+);
+
+export const MiniTitulo = ({ children, className = '', style }: TypographyProps) => (
+  <h4 className={`mini-titulo ${className}`} style={style}>{children}</h4>
+);
+
+export const TextoApoio = ({ children, className = '', style }: TypographyProps) => (
+  <p className={`texto-apoio ${className}`} style={style}>{children}</p>
+);
+
+export const Destaque = ({ children, className = '', style }: TypographyProps) => (
+  <blockquote className={`destaque ${className}`} style={style}>{children}</blockquote>
+);
+
+export const Legenda = ({ children, className = '', style }: TypographyProps) => (
+  <span className={`legenda ${className}`} style={style}>{children}</span>
+);
