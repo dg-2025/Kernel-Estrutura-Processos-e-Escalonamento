@@ -1,5 +1,6 @@
 "use client";
 import { GitMerge, MessageSquare } from 'lucide-react';
+import Image from 'next/image';
 import { SlideContainer, PainelConteudo, PainelMidia, BlocoInformativo } from '@/components/ui/Containers';
 import { TituloSlide, Subtitulo, TextoApoio, MiniTitulo } from '@/components/ui/Typography';
 
@@ -7,7 +8,14 @@ export default function Slide9() {
   return (
     <SlideContainer layout="reverso">
       <PainelMidia>
-        <img src="/images/ipc.png" alt="Mecanismos de IPC" />
+        <Image 
+          src="/images/ipc.png" 
+          alt="Mecanismos de IPC" 
+          width={800} 
+          height={600} 
+          style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+          quality={75}
+        />
       </PainelMidia>
       <PainelConteudo>
         <div className="presenter-badge">Pedro</div>
