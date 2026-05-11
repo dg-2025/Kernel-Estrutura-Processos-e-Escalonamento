@@ -1,0 +1,7 @@
+.gridMargin { margin-top: 1rem; }
+.cardSuccess { border-color: rgba(255, 209, 102, 0.3); }
+.titleSuccess { display: flex; align-items: center; gap: 0.5rem; color: #FFD166; }
+.cardWarning { border-color: rgba(255, 107, 53, 0.3); }
+.titleWarning { display: flex; align-items: center; gap: 0.5rem; color: #FF6B35; }
+.cardText { font-size: 0.85rem; }
+.footerText { margin-top: 0.8rem; font-size: 0.9rem; }

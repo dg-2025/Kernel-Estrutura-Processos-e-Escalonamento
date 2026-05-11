@@ -1,0 +1,5 @@
+.textCenter { text-align: center; }
+.contentMargin { margin-bottom: 1.5rem; }
+.quote { font-style: italic; border-left: 3px solid #FF6B35; padding-left: 1rem; margin-top: 0.5rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.9rem; }

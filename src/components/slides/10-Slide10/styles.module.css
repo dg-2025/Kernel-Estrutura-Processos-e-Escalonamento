@@ -1,0 +1,4 @@
+.textCenter { text-align: center; }
+.contentMargin { margin-bottom: 1rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.85rem; }

@@ -1,0 +1,7 @@
+.textCenter { text-align: center; }
+.cardMargin { margin-bottom: 1.5rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.9rem; }
+.cardTextSmall { font-size: 0.85rem; margin-top: 0.5rem; }
+.comparisonTitle { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.analogyText { margin-top: 1rem; font-style: italic; font-size: 0.9rem; }

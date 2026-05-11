@@ -1,0 +1,7 @@
+.gridMargin { margin-top: 0.5rem; }
+.titleWarning { display: flex; align-items: center; gap: 0.5rem; color: #FF6B35; }
+.titleSuccess { display: flex; align-items: center; gap: 0.5rem; color: #FFD166; }
+.cardText { font-size: 0.8rem; }
+.highlightCard { margin-top: 0.8rem; border-color: #FFD166; }
+.highlightTitle { display: flex; align-items: center; gap: 0.5rem; }
+.highlightText { font-size: 0.85rem; }

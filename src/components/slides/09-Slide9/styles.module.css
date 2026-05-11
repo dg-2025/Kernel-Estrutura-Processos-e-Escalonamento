@@ -1,0 +1,4 @@
+.listText { font-size: 0.85rem; }
+.cardMargin { margin-top: 1rem; }
+.cardTitleIcon { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.85rem; }

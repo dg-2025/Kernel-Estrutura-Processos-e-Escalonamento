@@ -1,0 +1,7 @@
+.textCenter { text-align: center; }
+.cardWarning { border-color: #FF6B35; }
+.titleWarning { display: flex; align-items: center; gap: 0.5rem; }
+.cardSuccess { border-color: #FFD166; }
+.titleSuccess { display: flex; align-items: center; gap: 0.5rem; }
+.cardText { font-size: 0.85rem; }
+.tableMargin { margin-top: 1rem; }

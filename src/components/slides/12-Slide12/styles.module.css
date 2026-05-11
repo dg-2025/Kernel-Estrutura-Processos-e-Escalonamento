@@ -1,0 +1,5 @@
+.textCenter { text-align: center; }
+.cardCentered { align-items: center; text-align: center; }
+.cardText { font-size: 0.85rem; }
+.summaryCard { margin-top: 1rem; background: rgba(255, 107, 53, 0.1); }
+.summaryText { font-size: 0.9rem; text-align: center; }
